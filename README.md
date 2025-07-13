@@ -7,13 +7,13 @@
 [![Bosta API](https://img.shields.io/badge/Bosta%20API-v2-orange.svg)](https://bosta.co)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
 
-> **The most advanced Customer Relationship Management system for logistics and delivery businesses, featuring complete order hierarchy management, automated service workflows, and real-time Bosta integration.**
+> **The most advanced Customer Relationship Management system for logistics and delivery businesses, featuring complete order hierarchy management, automated service workflows, and real-time Bosta integration with comprehensive data processing.**
 
 ---
 
 ## 🌟 **What Makes HVAR Special?**
 
-HVAR is not just another CRM—it's a **complete business intelligence platform** that transforms how logistics companies manage their entire customer lifecycle. From initial order to service resolution, HVAR provides unprecedented visibility and automation.
+HVAR is not just another CRM—it's a **complete business intelligence platform** that transforms how logistics companies manage their entire customer lifecycle. From initial order to service resolution, HVAR provides unprecedented visibility and automation with **comprehensive data processing** from Bosta API.
 
 ### **🎯 Core Innovation: Complete Cycle Management**
 ```
@@ -41,9 +41,136 @@ HVAR is not just another CRM—it's a **complete business intelligence platform*
 │  │ • Order States  │    │   Logic         │    │ • Service       │    │ • Real-time     │  │
 │  │ • Tracking      │    │ • Workflows     │    │   Actions       │    │   Dashboards    │  │
 │  │ • Delivery      │    │ • Automation    │    │ • Hierarchy     │    │ • Reports       │  │
+│  │ • Timeline      │    │ • Data Sync     │    │ • Timeline      │    │ • Predictions   │  │
 │  └─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘  │
 │                                                                                             │
 └─────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 **Complete Order Data Processing**
+
+### **🔍 Comprehensive Order Fields from Bosta API**
+
+HVAR processes **every single field** from the Bosta API to provide complete order intelligence:
+
+#### **📋 Primary Order Information**
+```json
+{
+  "id": "ORDER123456",
+  "tracking_number": "TRK789012345",
+  "state_code": 45,
+  "state_value": "Delivered",
+  "masked_state": "Delivered",
+  "is_confirmed_delivery": true,
+  "allow_open_package": false,
+  "order_type_code": 10,
+  "order_type_value": "Standard Delivery"
+}
+```
+
+#### **💰 Financial Data & Wallet Management**
+```json
+{
+  "cod": 1500.00,
+  "bosta_fees": 25.00,
+  "deposited_amount": 1525.00,
+  "business_category": "Real Sales Order",
+  "cod_category": "High Value"
+}
+```
+
+#### **👤 Complete Customer Information**
+```json
+{
+  "receiver_phone": "201234567890",
+  "receiver_name": "أحمد محمد علي",
+  "receiver_first_name": "أحمد",
+  "receiver_last_name": "علي",
+  "receiver_second_phone": "201234567891"
+}
+```
+
+#### **📦 Product & Package Details**
+```json
+{
+  "notes": "خلاط هفار 1000 وات - ضمان سنة",
+  "specs_items_count": 1,
+  "specs_description": "خلاط هفار 1000 وات مع كوب زجاجي",
+  "product_name": "خلاط هفار 1000 وات",
+  "product_count": 1
+}
+```
+
+#### **🗺️ Geographic Hierarchy (Complete Address Data)**
+```json
+{
+  "dropoff_city_name": "Cairo",
+  "dropoff_city_name_ar": "القاهرة",
+  "dropoff_zone_name": "Maadi",
+  "dropoff_zone_name_ar": "المعادي",
+  "dropoff_district_name": "Maadi",
+  "dropoff_district_name_ar": "المعادي",
+  "dropoff_first_line": "123 Street Name",
+  "dropoff_lat": 30.0444,
+  "dropoff_lng": 31.2357,
+  "pickup_city": "Cairo",
+  "pickup_zone": "Nasr City",
+  "pickup_district": "Nasr City",
+  "pickup_address": "456 Pickup Street"
+}
+```
+
+#### **🚚 Delivery & Logistics Information**
+```json
+{
+  "delivery_lat": 30.0444,
+  "delivery_lng": 31.2357,
+  "star_name": "محمد أحمد",
+  "star_phone": "201234567892",
+  "delivery_time_hours": 24.5,
+  "attempts_count": 2,
+  "calls_count": 3
+}
+```
+
+#### **⏰ Complete Timeline & Event Tracking**
+```json
+{
+  "timeline_json": "[{\"code\":\"created\",\"value\":\"Order Created\",\"date\":\"2024-01-15T10:00:00Z\"}]",
+  "created_at": "2024-01-15T10:00:00Z",
+  "scheduled_at": "2024-01-16T10:00:00Z",
+  "picked_up_at": "2024-01-16T11:00:00Z",
+  "received_at_warehouse": "2024-01-16T14:00:00Z",
+  "delivered_at": "2024-01-17T10:30:00Z",
+  "returned_at": null,
+  "latest_awb_print_date": "2024-01-16T10:30:00Z",
+  "last_call_time": "2024-01-17T09:00:00Z"
+}
+```
+
+#### **📊 SLA & Performance Monitoring**
+```json
+{
+  "order_sla_timestamp": "2024-01-18T10:00:00Z",
+  "order_sla_exceeded": false,
+  "e2e_sla_timestamp": "2024-01-19T10:00:00Z",
+  "e2e_sla_exceeded": false
+}
+```
+
+#### **🔄 Order Hierarchy & Business Intelligence**
+```json
+{
+  "original_order_id": "ORDER123456",
+  "order_level": 0,
+  "service_type": "main",
+  "hierarchy_status": "main",
+  "business_category": "Real Sales Order",
+  "last_state_change": "2024-01-17T10:30:00Z",
+  "hierarchy_detected_at": "2024-01-17T10:35:00Z"
+}
 ```
 
 ---
@@ -57,6 +184,8 @@ HVAR is not just another CRM—it's a **complete business intelligence platform*
 - **Dynamic State Management**: Automatic status updates and workflow triggers
 - **Advanced Filtering**: 15+ filter criteria for precise order management
 - **Order Analytics**: Comprehensive insights and performance metrics
+- **Complete Data Processing**: Every Bosta API field processed and stored
+- **Timeline Event Tracking**: Complete order lifecycle with event history
 
 ### **👥 Intelligent Customer Management**
 - **Customer Segmentation**: VIP, Regular, New, and Problematic customers
@@ -65,6 +194,7 @@ HVAR is not just another CRM—it's a **complete business intelligence platform*
 - **Satisfaction Scoring**: Real-time customer satisfaction metrics
 - **Return Rate Monitoring**: Proactive customer health tracking
 - **Predictive Analytics**: Customer churn prediction and next-purchase forecasting
+- **Complete Customer Profiles**: All customer data from orders processed
 
 ### **🔧 Automated Service Workflows**
 - **Smart Service Detection**: Automatic service need identification
@@ -73,6 +203,7 @@ HVAR is not just another CRM—it's a **complete business intelligence platform*
 - **Real-time Status Updates**: Live service progress tracking
 - **Automated Return Orders**: Seamless Bosta integration for returns
 - **Service Analytics**: Performance metrics and optimization insights
+- **Order Hierarchy Integration**: Service actions linked to order relationships
 
 ### **🏢 Hub Operations Excellence**
 - **Complete Order Context**: Full customer and order history at hub level
@@ -81,6 +212,7 @@ HVAR is not just another CRM—it's a **complete business intelligence platform*
 - **Real-time Scanning**: Instant order information retrieval
 - **Workflow Automation**: Streamlined hub confirmation processes
 - **Performance Tracking**: Hub efficiency and quality metrics
+- **Geographic Intelligence**: Location-based analytics and routing
 
 ### **📊 Business Intelligence & Analytics**
 - **Real-time Dashboards**: Live business performance monitoring
@@ -89,6 +221,76 @@ HVAR is not just another CRM—it's a **complete business intelligence platform*
 - **Financial Analytics**: Revenue optimization and cost analysis
 - **Customer Journey Mapping**: Complete lifecycle visualization
 - **Predictive Insights**: Future trend analysis and recommendations
+- **Geographic Analytics**: Location-based performance insights
+- **Timeline Analytics**: Event-based performance tracking
+
+---
+
+## 🔄 **Complete HVAR Cycle System**
+
+### **Phase 1: Order Data Processing & Hierarchy Detection**
+```
+📦 Bosta API → 🔍 Data Extraction → 🏷️ Order Classification → 🔗 Hierarchy Detection → 💾 Database Storage
+     ↓                    ↓                        ↓                        ↓                        ↓
+  Real-time Sync      Complete Fields         Business Logic          Auto-linking          Analytics Update
+     ↓                    ↓                        ↓                        ↓                        ↓
+  Timeline Events     Geographic Data         COD Analysis           Customer Patterns     Performance Metrics
+```
+
+**Key Features:**
+- **Complete Data Processing**: Every Bosta API field processed
+- **Automatic Order Classification**: Real Sales, Maintenance, Service, Refunds
+- **Hierarchy Detection**: Main orders linked to sub-orders automatically
+- **Geographic Intelligence**: Complete address hierarchy processing
+- **Timeline Tracking**: All order events captured and analyzed
+
+### **Phase 2: Service Action Creation & Management**
+```
+🔍 Service Detection → 📋 Action Creation → 🔗 Order Linking → 📦 Return Order → 🏢 Hub Workflow
+     ↓                        ↓                        ↓                        ↓                        ↓
+  State Analysis         Multi-type Actions      Hierarchy Context      Bosta Integration      Quality Control
+     ↓                        ↓                        ↓                        ↓                        ↓
+  Auto-triggers          Maintenance/Repair      Customer History       Real-time Sync         Team Review
+```
+
+**Key Features:**
+- **Automatic Service Detection**: Based on order states and patterns
+- **Multi-type Service Actions**: Maintenance, replacement, refund, exchange
+- **Order Hierarchy Integration**: Service actions linked to order relationships
+- **Bosta Return Integration**: Seamless return order creation
+- **Hub Confirmation Workflow**: Mandatory quality control process
+
+### **Phase 3: Hub Operations & Quality Control**
+```
+📱 Hub Scanning → 🔍 Product Inspection → 📊 Quality Assessment → 👨‍💼 Team Review → ✅ Confirmation
+     ↓                        ↓                        ↓                        ↓                        ↓
+  Order Context         Condition Evaluation      Score Calculation      Decision Making        Status Update
+     ↓                        ↓                        ↓                        ↓                        ↓
+  Complete History      Damage Assessment         Action Recommendation   Escalation Logic       Workflow Progress
+```
+
+**Key Features:**
+- **Complete Order Context**: Full customer and order history at hub level
+- **Standardized Quality Assessment**: 1-10 scoring system
+- **Automated Team Review**: Escalation for complex cases
+- **Action Recommendations**: Maintenance, replacement, refund decisions
+- **Real-time Status Updates**: Live workflow progress tracking
+
+### **Phase 4: Service Execution & Resolution**
+```
+🔧 Service Execution → 📦 Product Processing → 🚚 Return Delivery → ✅ Resolution → 📊 Analytics Update
+     ↓                        ↓                        ↓                        ↓                        ↓
+  Action Implementation   Repair/Replacement      Customer Delivery      Status Closure         Performance Tracking
+     ↓                        ↓                        ↓                        ↓                        ↓
+  Technician Assignment   Parts Management        Tracking Integration    Cycle Completion       Business Intelligence
+```
+
+**Key Features:**
+- **Multi-action Execution**: Maintenance, replacement, refund processing
+- **Parts Management**: Inventory integration for repairs
+- **Return Delivery**: Seamless product return to customers
+- **Cycle Completion**: Complete workflow closure
+- **Performance Analytics**: Resolution time and success rate tracking
 
 ---
 
@@ -102,6 +304,8 @@ HVAR is not just another CRM—it's a **complete business intelligence platform*
 | **Authentication** | Custom JWT | - | Secure API access |
 | **Logging** | Python Logging | - | Comprehensive system monitoring |
 | **Documentation** | Markdown | - | Complete system documentation |
+| **Data Processing** | Custom Engine | - | Complete Bosta API field processing |
+| **Analytics** | SQL Analytics | - | Real-time business intelligence |
 
 ---
 
@@ -219,13 +423,19 @@ GET    /api/analytics/hierarchy       # Order hierarchy analytics
 #### **Complex Order Filtering**
 ```bash
 # Get high-value orders with returns in specific city
-curl "http://localhost:5000/api/orders?cod_min=1000&has_returns=true&city=القاهرة&date_from=2024-01-01"
+curl "http://localhost:5000/api/orders?cod_min=1000&has_returns=true&city=القاهرة"
 
 # Get maintenance orders for VIP customers
 curl "http://localhost:5000/api/orders?delivery_category=maintenance&customer_segment=vip&sort_by=cod&sort_dir=DESC"
 
 # Get orders with service actions pending
 curl "http://localhost:5000/api/orders?has_service_actions=true&service_status=pending"
+
+# Get orders with complete product descriptions
+curl "http://localhost:5000/api/orders?has_product_desc=true&order_type=10"
+
+# Get orders with SLA exceeded
+curl "http://localhost:5000/api/orders?sla_exceeded=true&state=45"
 ```
 
 #### **Customer Analytics Queries**
@@ -238,76 +448,9 @@ curl "http://localhost:5000/api/customers?segment=vip&last_order_days=30&satisfa
 
 # Get customers needing attention
 curl "http://localhost:5000/api/customers?segment=problematic&has_maintenance_orders=true"
-```
 
----
-
-## 🔄 **Complete Workflow Examples**
-
-### **Example 1: Customer with Order - Maintenance Request**
-```
-📞 Customer Call: "My blender stopped working after 3 months"
-
-🔄 System Response:
-├─ 📦 Auto-Detect Hierarchy: ORDER123 (Main) → ORDER456 (Maintenance)
-├─ 🔧 Create Service Action: ACTION001 (Linked to ORDER123)
-├─ 📦 Create Return Order: RETURN456 (Bosta Integration)
-├─ 🚚 Customer Returns Product to Hub
-├─ 📱 Hub Scans: RETURN456 → Shows "Maintenance Ticket + Complete Order History"
-├─ 🔍 Hub Inspection: Quality Score 6 → "Needs Maintenance"
-├─ 👨‍💼 Team Leader Review: Not Required (Score > 3)
-├─ 🔧 Execute Maintenance: Replace motor bearings
-└─ 📦 Return Product: Repaired product back to customer
-
-📊 Analytics Update:
-├─ Order Hierarchy: 1 main order, 1 maintenance sub-order
-├─ Service Performance: 3-day resolution time
-├─ Customer Satisfaction: +0.2 points
-└─ Revenue Impact: $50 maintenance cost vs $500 original order
-```
-
-### **Example 2: Customer without Order - Full Replacement**
-```
-📞 Customer Call: "Bought blender from store, defective on arrival"
-
-🔄 System Response:
-├─ 🔧 Create Service Action: ACTION002 (No main order link)
-├─ 📦 Create Return Order: RETURN789 (Bosta Integration)
-├─ 🚚 Customer Returns Product to Hub
-├─ 📱 Hub Scans: RETURN789 → Shows "Full Replacement Request"
-├─ 🔍 Hub Inspection: Quality Score 2 → "Defective"
-├─ 👨‍💼 Team Leader Review: Required (Low quality score)
-├─ ✅ Team Leader Decision: "Approve Full Replacement"
-├─ 🔄 Execute Full Replacement: New product shipped
-└─ 📦 Resolution: Customer receives new product
-
-📊 Analytics Update:
-├─ Service Type: Full replacement (no order link)
-├─ Quality Control: Team leader review required
-├─ Customer Experience: Immediate resolution
-└─ Cost Analysis: $200 replacement cost
-```
-
-### **Example 3: Return with Refund**
-```
-📞 Customer Call: "Want to return and get refund"
-
-🔄 System Response:
-├─ 📦 Auto-Detect Hierarchy: ORDER456 (Main) → ORDER789 (Return)
-├─ 🔧 Create Service Action: ACTION003 (Linked to ORDER456)
-├─ 📦 Create Return Order: RETURN101 (Bosta Integration)
-├─ 🚚 Customer Returns Product to Hub
-├─ 📱 Hub Scans: RETURN101 → Shows "Return Refund Request + Order History"
-├─ 🔍 Hub Inspection: Quality Score 8 → "Good Condition"
-├─ 👨‍💼 Team Leader Review: Not Required (Good condition)
-├─ 💰 Execute Refund: Process refund payment
-└─ ✅ Resolution: Customer receives refund
-
-📊 Analytics Update:
-├─ Order Hierarchy: 1 main order, 1 return sub-order
-├─ Refund Processing: 24-hour turnaround
-├─ Customer Satisfaction: Maintained
-└─ Financial Impact: $300 refund processed
+# Get customers by geographic location
+curl "http://localhost:5000/api/customers?city=القاهرة&zone=المعادي"
 ```
 
 ---
@@ -316,33 +459,95 @@ curl "http://localhost:5000/api/customers?segment=problematic&has_maintenance_or
 
 ### **Core Tables**
 
-#### **Orders Table** (Enhanced with Hierarchy)
+#### **Orders Table** (Complete Bosta Data)
 ```sql
 CREATE TABLE orders (
+    -- Primary identifiers
     id TEXT PRIMARY KEY,
     tracking_number TEXT UNIQUE NOT NULL,
+    
+    -- Order status & lifecycle
+    state_code INTEGER NOT NULL,
+    state_value TEXT,
+    masked_state TEXT,
+    is_confirmed_delivery BOOLEAN DEFAULT 0,
+    allow_open_package BOOLEAN DEFAULT 0,
+    
+    -- Order type information
+    order_type_code INTEGER,
+    order_type_value TEXT,
+    
+    -- Financial data & wallet
+    cod REAL DEFAULT 0,
+    bosta_fees REAL DEFAULT 0,
+    deposited_amount REAL DEFAULT 0,
+    
+    -- Customer information
     receiver_phone TEXT NOT NULL,
     receiver_name TEXT,
-    cod DECIMAL(10,2) DEFAULT 0,
-    state_code INTEGER,
-    city TEXT,
-    zone TEXT,
-    district TEXT,
-    address TEXT,
-    product_name TEXT,
-    product_description TEXT,
-    notes TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    receiver_first_name TEXT,
+    receiver_last_name TEXT,
+    receiver_second_phone TEXT,
     
-    -- Hierarchy Fields
-    original_order_id TEXT,
-    order_level INTEGER DEFAULT 0, -- 0=main, 1=sub, 2=sub-sub
-    service_type VARCHAR(50), -- 'main', 'maintenance', 'service', 'return', 'refund'
-    hierarchy_status VARCHAR(50) DEFAULT 'unlinked',
-    business_category VARCHAR(100),
-    last_state_change TIMESTAMP,
-    hierarchy_detected_at TIMESTAMP
+    -- Product information & specifications
+    notes TEXT,
+    specs_items_count INTEGER DEFAULT 1,
+    specs_description TEXT,
+    product_name TEXT,
+    product_count INTEGER DEFAULT 1,
+    
+    -- Geographic hierarchy - complete address data
+    dropoff_city_name TEXT,
+    dropoff_city_name_ar TEXT,
+    dropoff_zone_name TEXT,
+    dropoff_zone_name_ar TEXT,
+    dropoff_district_name TEXT,
+    dropoff_district_name_ar TEXT,
+    dropoff_first_line TEXT,
+    dropoff_lat REAL,
+    dropoff_lng REAL,
+    
+    -- Pickup location data
+    pickup_city TEXT,
+    pickup_zone TEXT,
+    pickup_district TEXT,
+    pickup_address TEXT,
+    
+    -- Delivery information
+    delivery_lat REAL,
+    delivery_lng REAL,
+    star_name TEXT,
+    star_phone TEXT,
+    
+    -- Timeline data (JSON format for dynamic events)
+    timeline_json TEXT,
+    
+    -- Key timeline dates
+    created_at TEXT NOT NULL,
+    scheduled_at TEXT,
+    picked_up_at TEXT,
+    received_at_warehouse TEXT,
+    delivered_at TEXT,
+    returned_at TEXT,
+    latest_awb_print_date TEXT,
+    last_call_time TEXT,
+    
+    -- Delivery time calculation (in hours)
+    delivery_time_hours REAL,
+    
+    -- Communication & attempts
+    attempts_count INTEGER DEFAULT 0,
+    calls_count INTEGER DEFAULT 0,
+    
+    -- SLA information
+    order_sla_timestamp TEXT,
+    order_sla_exceeded BOOLEAN DEFAULT 0,
+    e2e_sla_timestamp TEXT,
+    e2e_sla_exceeded BOOLEAN DEFAULT 0,
+    
+    -- System data
+    last_synced TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by_system TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
@@ -415,6 +620,23 @@ CREATE TABLE hub_confirmation_workflow (
 );
 ```
 
+#### **Timeline Events**
+```sql
+CREATE TABLE timeline_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id TEXT,
+    tracking_number TEXT NOT NULL,
+    event_code TEXT NOT NULL,
+    event_value TEXT NOT NULL,
+    event_date TEXT,
+    is_done BOOLEAN DEFAULT 1,
+    description TEXT,
+    sequence_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (tracking_number) REFERENCES orders(tracking_number) ON DELETE CASCADE
+);
+```
+
 ---
 
 ## 📊 **Analytics & Business Intelligence**
@@ -427,6 +649,9 @@ CREATE TABLE hub_confirmation_workflow (
 - **Service Action Rate**: Orders requiring service actions
 - **Return Rate**: Percentage of orders returned
 - **Revenue Analysis**: COD trends and patterns
+- **Geographic Distribution**: Orders by city, zone, district
+- **SLA Performance**: Order and E2E SLA compliance rates
+- **Delivery Performance**: Average delivery times and success rates
 
 #### **Customer Analytics Dashboard**
 - **Customer Segments**: Distribution across VIP, Regular, New, Problematic
@@ -434,6 +659,8 @@ CREATE TABLE hub_confirmation_workflow (
 - **Satisfaction Scores**: Real-time customer satisfaction metrics
 - **Churn Risk**: Customers at risk of churning
 - **Service History**: Customer service interaction patterns
+- **Geographic Distribution**: Customer locations and patterns
+- **Order Patterns**: Customer ordering behavior analysis
 
 #### **Service Analytics Dashboard**
 - **Service Action Types**: Distribution of maintenance, replacement, refund
@@ -441,6 +668,8 @@ CREATE TABLE hub_confirmation_workflow (
 - **Hub Performance**: Hub efficiency and quality scores
 - **Cost Analysis**: Service costs vs. order values
 - **Success Rates**: Service action completion rates
+- **Team Performance**: Technician and hub agent performance
+- **Quality Metrics**: Product condition and quality trends
 
 ### **Advanced Analytics Features**
 
@@ -449,12 +678,88 @@ CREATE TABLE hub_confirmation_workflow (
 - **Next Purchase Forecasting**: Predict when customers will order again
 - **Service Demand Prediction**: Forecast service action requirements
 - **Revenue Forecasting**: Predict future revenue based on patterns
+- **Geographic Trends**: Location-based demand forecasting
 
 #### **Business Intelligence Insights**
 - **Order Hierarchy Patterns**: Identify common order relationships
 - **Service Optimization**: Optimize service workflows based on data
 - **Customer Segmentation**: Advanced customer classification
 - **Performance Benchmarking**: Compare performance across periods
+- **Geographic Intelligence**: Location-based business insights
+- **Timeline Analysis**: Event-based performance optimization
+
+---
+
+## 🔄 **Complete Workflow Examples**
+
+### **Example 1: Customer with Order - Maintenance Request**
+```
+📞 Customer Call: "My blender stopped working after 3 months"
+
+🔄 System Response:
+├─ 📦 Auto-Detect Hierarchy: ORDER123 (Main) → ORDER456 (Maintenance)
+├─ 🔧 Create Service Action: ACTION001 (Linked to ORDER123)
+├─ 📦 Create Return Order: RETURN456 (Bosta Integration)
+├─ 🚚 Customer Returns Product to Hub
+├─ 📱 Hub Scans: RETURN456 → Shows "Maintenance Ticket + Complete Order History"
+├─ 🔍 Hub Inspection: Quality Score 6 → "Needs Maintenance"
+├─ 👨‍💼 Team Leader Review: Not Required (Score > 3)
+├─ 🔧 Execute Maintenance: Replace motor
+└─ 📦 Return Product: Repaired product back to customer
+
+📊 Analytics Update:
+├─ Order Hierarchy: 1 main order, 1 maintenance sub-order
+├─ Service Performance: 3-day resolution time
+├─ Customer Satisfaction: +0.2 points
+├─ Revenue Impact: $50 maintenance cost vs $500 original order
+└─ Geographic Performance: Cairo hub efficiency metrics
+```
+
+### **Example 2: Customer without Order - Full Replacement**
+```
+📞 Customer Call: "Bought blender from store, defective on arrival"
+
+🔄 System Response:
+├─ 🔧 Create Service Action: ACTION002 (No main order link)
+├─ 📦 Create Return Order: RETURN789 (Bosta Integration)
+├─ 🚚 Customer Returns Product to Hub
+├─ 📱 Hub Scans: RETURN789 → Shows "Full Replacement Request"
+├─ 🔍 Hub Inspection: Quality Score 2 → "Defective"
+├─ 👨‍💼 Team Leader Review: Required (Low quality score)
+├─ ✅ Team Leader Decision: "Approve Full Replacement"
+├─ 🔄 Execute Full Replacement: New product shipped
+└─ 📦 Resolution: Customer receives new product
+
+📊 Analytics Update:
+├─ Service Type: Full replacement (no order link)
+├─ Quality Control: Team leader review required
+├─ Customer Experience: Immediate resolution
+├─ Cost Analysis: $200 replacement cost
+└─ Geographic Data: Customer location tracking
+```
+
+### **Example 3: Return with Refund**
+```
+📞 Customer Call: "Want to return and get refund"
+
+🔄 System Response:
+├─ 📦 Auto-Detect Hierarchy: ORDER456 (Main) → ORDER789 (Return)
+├─ 🔧 Create Service Action: ACTION003 (Linked to ORDER456)
+├─ 📦 Create Return Order: RETURN101 (Bosta Integration)
+├─ 🚚 Customer Returns Product to Hub
+├─ 📱 Hub Scans: RETURN101 → Shows "Return Refund Request + Order History"
+├─ 🔍 Hub Inspection: Quality Score 8 → "Good Condition"
+├─ 👨‍💼 Team Leader Review: Not Required (Good condition)
+├─ 💰 Execute Refund: Process refund payment
+└─ ✅ Resolution: Customer receives refund
+
+📊 Analytics Update:
+├─ Order Hierarchy: 1 main order, 1 return sub-order
+├─ Refund Processing: 24-hour turnaround
+├─ Customer Satisfaction: Maintained
+├─ Financial Impact: $300 refund processed
+└─ Geographic Performance: Zone-based return patterns
+```
 
 ---
 
